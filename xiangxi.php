@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-cn">
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -11,6 +10,12 @@
 		<script src="js/respond.js"></script>
 		<link type="image/x-icon" href="http://www.pintuer.com/favicon.ico" rel="shortcut icon" />
 		<link href="http://www.pintuer.com/favicon.ico" rel="bookmark icon" />
+		<?php
+			include('public/conn.php');
+			$sid=$_GET['id'];
+			$sql_xiangxi=mysqli_query($con,"select * from shangpin where goodid='$sid'");
+			$xiangxi=mysqli_fetch_assoc($sql_xiangxi);
+		?>
 		<style>
 			.demo-nav.fixed.fixed-top {
 				z-index: 8;
@@ -65,13 +70,13 @@
 			<br>
 			<div class="xl12 xs12 xm12 xb12 bg-white">
 				<div class="xl12 xs12 xm4 xb4">
-					<img class="img-responsive" src="1.jpg" width="100%" alt=""/>
+					<img class="img-responsive" src="<?php echo $xiangxi['image']; ?>" width="100%" alt=""/>
 				</div>
 				<div class="xl12 xs12 xm8 xb8 padding-big">
-					<h2>爱奇艺周卡激活码</h2>
+					<h2><?php echo $xiangxi['name']; ?></h2>
 				</div>
 				<div class="xl12 xs12 xm8 xb8 padding-big">
-					<h4>售价：￥10.00</h4><p>
+					<h4>售价：￥<?php echo $xiangxi['jiage']; ?></h4><p>
 					<h4>库存：9999</h4><p>
 					<h4><div class="x12"><div class="xl12 xs12 xm3 xm3">数量：<input type="text" class="input" value="1"></div></div></h4>
 					<div class="x3"><button class="button">购买</button></div>

@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 	<?php
 		include("public/header.php");
-		$sql_shangping_aiqiyi=mysqli_query($con,"select * from shangpin where leixing='1'");
+		$sql_shangping_aiqiyi=mysqli_query($con,"select * from shangpin");
 		$aiqiyi_jishu=mysqli_num_rows($sql_shangping_aiqiyi);
 	?>
 
@@ -22,37 +22,28 @@
 					爱奇艺
 				</blockquote>
 				<?php
+					mysqli_data_seek($sql_shangping_aiqiyi,0);
 					for($i=0;$i<$aiqiyi_jishu;$i++){
-						$aiqiyi=mysqli_fetch_array($sql_shangping_aiqiyi);
-						$aiqiyi_name=$aiqiyi['name'];
-						$aiqiyi_jiage=$aiqiyi['jiage'];
-						$aiqiyi_sjiage=$aiqiyi['s_jiage'];
-						echo '<div class="xl6 xs3 xm2 xb2 padding">
+						$shangping=mysqli_fetch_array($sql_shangping_aiqiyi);
+						$id=$shangping['goodid'];
+						$name=$shangping['name'];
+						$jiage=$shangping['jiage'];
+						$sjiage=$shangping['s_jiage'];
+						$image=$shangping['image'];
+						$leixing=$shangping['leixing'];
+						if(($leixing)==1){
+							echo '<a href="xiangxi.php?id='.$id.'"><div class="xl6 xs3 xm2 xb2 padding">
 								<div class="media clearfix">
-									<a href="#">
-										<img src="1.jpg" class="radius img-responsive" alt="...">
-									</a>
+										<img src="'.$image.'" class="radius img-responsive" alt="...">
 									<div class="media-body">
-										<strong>'.$aiqiyi_name.'</strong>
-										<div class="x6">￥'.$aiqiyi_jiage.'</div><div class="x6"><s>￥'.$aiqiyi_sjiage.' </s></div>
+										<strong>'.$name.'</strong>
+										<div class="x6">￥'.$jiage.'</div><div class="x6"><s>￥'.$sjiage.' </s></div>
 									</div>
 								</div>
-							</div>';
+							</div></a>';
+						}
 					}
 				?>
-<!--
-				<div class="xl6 xs3 xm2 xb2 padding">
-					<div class="media clearfix">
-						<a href="#">
-							<img src="1.jpg" class="radius img-responsive" alt="...">
-						</a>
-						<div class="media-body">
-							<strong>爱奇艺会员</strong>
-							<div class="x6">￥10.00</div><div class="x6"><s>￥20.00 </s></div>
-						</div>
-					</div>
-				</div>
--->
 			</div>
 		<!--爱奇艺结束-->
 		<!--优酷开始-->
@@ -60,28 +51,29 @@
 				<blockquote>
 					优酷
 				</blockquote>
-				<div class="xl6 xs3 xm2 xb2 padding">
-					<div class="media clearfix">
-						<a href="#">
-							<img src="1.jpg" class="radius img-responsive" alt="...">
-						</a>
-						<div class="media-body">
-							<strong>爱奇艺会员</strong>
-							<div class="x6">￥10.00</div><div class="x6"><s>￥20.00 </s></div>
-						</div>
-					</div>
-				</div>
-				<div class="xl6 xs3 xm2 xb2 padding">
-					<div class="media clearfix">
-						<a href="#">
-							<img src="1.jpg" class="radius img-responsive" alt="...">
-						</a>
-						<div class="media-body">
-							<strong>爱奇艺会员</strong>
-							<div class="x6">￥10.00</div><div class="x6"><s>￥20.00 </s></div>
-						</div>
-					</div>
-				</div>
+				<?php
+					mysqli_data_seek($sql_shangping_aiqiyi,0);
+					for($i=0;$i<$aiqiyi_jishu;$i++){
+						$shangping=mysqli_fetch_array($sql_shangping_aiqiyi);
+						$id=$shangping['goodid'];
+						$name=$shangping['name'];
+						$jiage=$shangping['jiage'];
+						$sjiage=$shangping['s_jiage'];
+						$image=$shangping['image'];
+						$leixing=$shangping['leixing'];
+						if(($leixing)==2){
+							echo '<a href="xiangxi.php?id='.$id.'"><div class="xl6 xs3 xm2 xb2 padding">
+								<div class="media clearfix">
+										<img src="'.$image.'" class="radius img-responsive" alt="...">
+									<div class="media-body">
+										<strong>'.$name.'</strong>
+										<div class="x6">￥'.$jiage.'</div><div class="x6"><s>￥'.$sjiage.' </s></div>
+									</div>
+								</div>
+							</div></a>';
+						}
+					}
+				?>
 			</div>
 		<!--优酷结束-->
 		<!--腾讯开始-->
