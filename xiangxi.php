@@ -67,19 +67,20 @@
 	<!--主体开始-->
 		<div class="container bg-white">
 			<br>
-			<div class="xl12 xs12 xm12 xb12 bg-white"><form>
+			<div class="xl12 xs12 xm12 xb12 bg-white"><form method="POST" action="pay/pay.php">
 				<div class="xl12 xs12 xm4 xb4">
 					<img class="img-responsive" src="<?php echo $xiangxi['image']; ?>" width="100%" alt=""/>
 				</div>
 				<div class="xl12 xs12 xm8 xb8 padding-big">
 					<h2><?php echo $xiangxi['name']; ?></h2>
 					<input type="hidden" id="names" name="names" value="<?php echo $xiangxi['name']; ?>">
-					<input type="hidden" id="leixing" name="keixing" value="<?php echo $sid; ?>">
+					<input type="hidden" id="leixing" name="leixing" value="<?php echo $sid; ?>">
 				</div>
 				<div class="xl12 xs12 xm8 xb8 padding-big">
 					<h4>售价：￥<?php echo $xiangxi['jiage']; ?></h4><p>
-					<input type="hidden" id="inputmoney" name="inputmoney" value="<?php echo $xiangxi['jiage']; ?>">
+					<input type="hidden" id="inputmoney" name="jiage" value="<?php echo $xiangxi['jiage']; ?>">
 					<h4>库存：9999</h4><p>
+					<h4>手机号：<input type="text" class="input" name="user"></h4>
 					<h4><div class="x12"><div class="xl12 xs12 xm3 xm3">
 						数量：
 						<select class="input" id="shuliang" name="shuliang">
@@ -97,12 +98,16 @@
 						</div></div></h4>
 					<p>支付方式
 					<div class="x12">
-						<select class="input" id="zhifu">
-							<option value="43">支付宝</option>
-							<option value="44">微信</option>
-						</select>
+						<div class="button-group radio">
+							<label class="button active">
+								<input name="zhifu" value="43" checked="checked" type="radio">支付宝
+							</label>
+							<label class="button">
+								<input name="zhifu" value="44" type="radio">微信
+							</label>
+						</div>
 					</div>
-					<div class="xl12 xs12 xm3 xb3 padding"><button class="button" type="button" id="demoBtn1">购  买</button></div>
+					<div class="xl12 xs12 xm3 xb3 padding"><input class="button" type="submit" value="购 买"></div>
 				</div>
 			</div></form>
 			<div class="xl12 xs12 xm12 xb12 padding-big bg-back" style="height: 400px">
@@ -136,47 +141,5 @@
 				</div>
 			</div>
 		</div>
-
-		<form style='display:none;' id='formpay' name='formpay' method='post' action='https://api.6688pay.com:8080/?input_charset=utf-8'>
-			<input name='order_no' id='order_no' type='text' value=''/>
-			<input name='subject' id='subject' type='text' value='' />
-			<input name='pay_type' id='pay_type' type='text' value='' />
-			<input name='money' id='money' type='text' value=''/>
-			<input name='app_id' id='app_id' type='text' value=''/>        
-			<input name='extra' id='extra' type='text' value=''/>
-			<input name='sign' id='sign' type='text' value=''/>
-			<input type='submit' id='submitdemo1'>
-		</form>
-
-	<!-- Jquery files -->
-	<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript">
-	$().ready(function(){
-		$("#demoBtn1").click(function(){
-			$.get(
-				"pay/pay.php",
-				{
-					money : $("#inputmoney").val(),
-					pay_type : $("#zhifu").val(),
-					name : $("#names").val(),
-					leixing : $("#leixing").val(),
-					shuliang : $("input[id='shuliang']").val(),
-				},
-				function(data){
-					$("#order_no").val(data.order_no);
-					$('#subject').val(data.subject);
-					$("#pay_type").val(data.pay_type);                
-					$('#money').val(data.money);
-					$('#app_id').val(data.app_id);
-					$('#extra').val(data.extra);
-					$('#sign').val(data.sign);
-					$('#submitdemo1').click();
-				}, "json"
-			);
-		});
-	});
-	</script>
-
-
 	</body>
 </html>

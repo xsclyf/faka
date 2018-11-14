@@ -52,14 +52,20 @@
 						if ($result == "success"){
 							//建议业务处理放在notify.asp页面，本页仅用于显示支付结果
 							//此处在您数据库中查询：此笔订单号是否已经异步通知给您付款成功了。如成功了，就给他返回一个支付成功的展示。
+							$arr=explode(";",$extra);
+							$s_leixing=$arr['0'];
+							$s_shuliang=$arr['1'];
+							$s_user=$arr['2'];
 							echo "恭喜，支付成功!，订单号：".$order_no."<br>";
 							echo "手机号：<br>";
 							include('../public/conn.php');
-							$sql_chaxun=mysqli_query($con,"select * from kami where goodid='$extra' and zt='2' limit 1");
+							$sql_chaxun=mysqli_query($con,"select * from dingdan where user='$s_user' and d_hao='$order_no'");
 							$kami=mysqli_fetch_assoc($sql_chaxun);
-							echo "你的卡密为：".$kami['neirong'];
-							$kamiid=$kami['id'];
-							$sql_xiugai=mysqli_query($con,"update kami set zt='0' where id='$kamiid'");
+							$kami_arr=explode(";",$kami);
+							echo "你的卡密为：";
+							foreach ($kami_arr as $kami_neirong) {
+								echo $kami_neirong;
+							}
 						}
 						else{
 							echo "支付失败！";
