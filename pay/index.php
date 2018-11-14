@@ -26,14 +26,12 @@
 		$sign = $_GET["sign"];
 
 		//计算签名
-		$mysign_forstr = "order_no=" . $order_no . "&subject=" . $subject . "&pay_type=" . $pay_type . "&money=" . $money . "&realmoney=" . $realmoney . 
-
-"&result=" . $result . "&xddpay_order=" . $xddpay_order . "&app_id=" . $app_id . "&extra=" . $extra . "&" . $app_secret;
+		$mysign_forstr = "order_no=" . $order_no . "&subject=" . $subject . "&pay_type=" . $pay_type . "&money=" . $money . "&realmoney=" . $realmoney . "&result=" . $result . "&xddpay_order=" . $xddpay_order . "&app_id=" . $app_id . "&extra=" . $extra . "&" . $app_secret;
 		$mysign = strtoupper(md5($mysign_forstr));
 	?>
 
 	<!--主体开始-->
-		<div class="container" style="height: 600px">
+		<div class="container" style="height: 100%">
 			<div class="banner bg-blue hidden-l" style="height: 300px" data-style="border-white">
 				<div class="carousel">
 					<div class="item">1</div>
@@ -43,7 +41,7 @@
 			</div>
 			<br>
 		<!--主体内容开始-->
-			<div>
+			<div style="height: 100%">
 				<?php
 				//验签
 					if(($sign)==null){
@@ -58,18 +56,22 @@
 							$s_leixing=$arr['0'];
 							$s_shuliang=$arr['1'];
 							$s_user=$arr['2'];
-							echo "恭喜，支付成功!，订单号：".$order_no."<br>";
-							echo "手机号：<br>";
 							$sql_chaxun=mysqli_query($con,"select * from dingdan where users='$s_user' and d_hao='$order_no'");
 							$kami=mysqli_fetch_assoc($sql_chaxun);
 							$kami_arr=explode(";",$kami['k_hao']);
-							echo "你的卡密为：";
-							foreach ($kami_arr as $kami_neirong) {
-								echo $kami_neirong."<br>";
-							}
+							echo '<div class="bg-mix x12">
+									<div><center><span class="icon-check-circle text-large text-green"></span></center></div>
+									<div><center><h2>付款成功</h2></center></div>
+									<div class="xl12 xs10 xm6 xb6 xs1-move xm2-move xb2-move"><h2>订单号：'.$order_no.'<br>电话号码：'.$s_user.'<br>支付方式：'.$pay_type.'<br>应付金额：'.$money.'<br>实付金额：'.$realmoney.'<br>卡密：';
+									foreach ($kami_arr as $kami_neirong) {
+										echo $kami_neirong."<br>";
+									}
+							echo '</h2></div>
+									<div class="xl12 xs10 xm6 xb6 xs1-move xm2-move xb2-move padding"><a href="../index.php" class="button bg-white">返回首页</a></div>
+								  </div>';
 						}
 						else{
-							echo "支付失败！";
+							echo "支付失败！请联系客服人员处理！";
 						}
 					}else{
 						echo "mysign_forstr=" . $mysign_forstr;	//调试时开启
