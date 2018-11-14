@@ -9,7 +9,7 @@
 		<link type="image/x-icon" href="http://www.pintuer.com/favicon.ico" rel="shortcut icon" />
 		<link href="http://www.pintuer.com/favicon.ico" rel="bookmark icon" />
 		<?php
-			include('public/conn.php');
+			include('../public/conn.php');
 		?>
 		<style>
 			.demo-nav.fixed.fixed-top {
