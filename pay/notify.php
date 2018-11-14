@@ -34,7 +34,8 @@
 			$s_shuliang=$arr['1'];
 			$s_user=$arr['2'];
 			include('../public/conn.php');
-			$sql_chaxun=mysqli_query($con,"select * from kami where goodid='$s_leixing' and zt='1' limit '$s_shuliang'");
+			$sql_chaxun=mysqli_query($con,"select * from kami where goodid='$s_leixing' and zt='1' limit $s_shuliang");
+			$sql_xiugai=mysqli_query($con,"update kami set zt='0' where  goodid='$s_leixing' and zt='1' limit $s_shuliang");
 			$kami_arr=array();
 			for ($i=0; $i < $s_shuliang; $i++) { 
 				$kami=mysqli_fetch_array($sql_chaxun);
@@ -42,7 +43,7 @@
 				array_push($kami_arr,"$kami_jieguo");
 			}
 			$kami_neirong = implode(";",$kami_arr);
-			$sql_dingdan_tianjia=mysqli_query($con,"insert into dingdan (d_hao,goodid,user,k_hao,jine,y_jine) values('$order_no','$s_leixing','$s_user','$kami_neirong','$realmoney','$money')")
+			$sql_dingdan_tianjia=mysqli_query($con,"insert into dingdan (d_hao,goodid,users,k_hao,jine,y_jine) values('$order_no','$s_leixing','$s_user','$kami_neirong','$realmoney','$money')");
 			echo "success";
 		}
 		else{

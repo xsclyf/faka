@@ -11,7 +11,7 @@
 	include 'define.php';
 	
     //从网页传入money:支付价格， pay_type:支付渠道：43-支付宝；44-微信支付
-	$order_no = '123';  //订单号
+	$order_no = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);  //订单号
 	$subject = $_POST["names"]; //商品名
 	$pay_type = $_POST["zhifu"]; //支付方式：43-支付宝；44 -微信支付
 	$shuliang = $_POST['shuliang']; //商品数量

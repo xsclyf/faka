@@ -26,7 +26,9 @@
 		$sign = $_GET["sign"];
 
 		//计算签名
-		$mysign_forstr = "order_no=" . $order_no . "&subject=" . $subject . "&pay_type=" . $pay_type . "&money=" . $money . "&realmoney=" . $realmoney . "&result=" . $result . "&xddpay_order=" . $xddpay_order . "&app_id=" . $app_id . "&extra=" . $extra . "&" . $app_secret;
+		$mysign_forstr = "order_no=" . $order_no . "&subject=" . $subject . "&pay_type=" . $pay_type . "&money=" . $money . "&realmoney=" . $realmoney . 
+
+"&result=" . $result . "&xddpay_order=" . $xddpay_order . "&app_id=" . $app_id . "&extra=" . $extra . "&" . $app_secret;
 		$mysign = strtoupper(md5($mysign_forstr));
 	?>
 
@@ -58,13 +60,12 @@
 							$s_user=$arr['2'];
 							echo "恭喜，支付成功!，订单号：".$order_no."<br>";
 							echo "手机号：<br>";
-							include('../public/conn.php');
-							$sql_chaxun=mysqli_query($con,"select * from dingdan where user='$s_user' and d_hao='$order_no'");
+							$sql_chaxun=mysqli_query($con,"select * from dingdan where users='$s_user' and d_hao='$order_no'");
 							$kami=mysqli_fetch_assoc($sql_chaxun);
-							$kami_arr=explode(";",$kami);
+							$kami_arr=explode(";",$kami['k_hao']);
 							echo "你的卡密为：";
 							foreach ($kami_arr as $kami_neirong) {
-								echo $kami_neirong;
+								echo $kami_neirong."<br>";
 							}
 						}
 						else{
@@ -98,10 +99,14 @@
 				<div class="navbar">
 					<div class="navbar-head">
 						<button class="button bg-gray icon-navicon" data-target="#navbar-footer"></button>
-						<a href="http://www.pintuer.com" target="_blank"><img class="logo" src="images/24-white.png" alt="拼图前端CSS框架" /></a>
+						<a href="http://www.pintuer.com" target="_blank"><img class="logo" src="images/24-white.png" alt="拼图前端CSS框架" 
+
+/></a>
 					</div>
 					<div class="navbar-body nav-navicon" id="navbar-footer">
-						<div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="http://www.pintuer.com" target="_blank">Pintuer.com</a> All Rights Reserved，图ICP备：380959609</div>
+						<div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="http://www.pintuer.com" 
+
+target="_blank">Pintuer.com</a> All Rights Reserved，图ICP备：380959609</div>
 					</div>
 				</div>
 			</div>
