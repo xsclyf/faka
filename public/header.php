@@ -21,6 +21,15 @@
 				-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
 				box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
 			}
+			html,body{
+                height:100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            #zhuti{
+                height: 100%;
+            }
 		</style>
 	</head>
 
@@ -31,17 +40,17 @@
 				<div class="line">
 					<div class="xl12 xs3 xm3 xb2">
 						<button class="button icon-navicon float-right" data-target="#header-demo"></button>
-						<a target="_blank" href="http://www.pintuer.com"><img src="logo.png" alt="前端CCS框架" /></a>
+						<a target="_blank" href="index.php"><img src="logo.png" alt="前端CCS框架" /></a>
 					</div>
 					<div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
 						<div class="xs8 xm6 xb8 padding-small">
 							<ul class="nav nav-menu nav-inline nav-big">
-								<li><a href="http://www.pintuer.com">首页</a></li>
-								<li><a href="http://www.pintuer.com">爱奇艺</a></li>
-								<li><a href="http://www.pintuer.com">腾讯</a></li>
-								<li><a href="http://www.pintuer.com">优酷</a></li>
-								<li><a href="http://www.pintuer.com">芒果</a></li>
-								<li><a href="http://www.pintuer.com">其他</a></li>
+								<li><a href="index.php">首页</a></li>
+								<li><a href="daohang.php?leixing=1">爱奇艺</a></li>
+								<li><a href="daohang.php?leixing=3">腾讯</a></li>
+								<li><a href="daohang.php?leixing=2">优酷</a></li>
+								<li><a href="daohang.php?leixing=4">芒果</a></li>
+								<li><a href="daohang.php?leixing=5">其他</a></li>
 							</ul>
 						</div>
 <!--						搜索-->

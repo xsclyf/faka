@@ -2,8 +2,8 @@
 <html lang="zh-cn">
 	<?php
 		include("public/header.php");
-		$sql_shangping_aiqiyi=mysqli_query($con,"select * from shangpin");
-		$aiqiyi_jishu=mysqli_num_rows($sql_shangping_aiqiyi);
+		$sql_shangping=mysqli_query($con,"select * from shangpin");
+		$aiqiyi_jishu=mysqli_num_rows($sql_shangping);
 	?>
 
 		<!--主体-->
@@ -22,9 +22,9 @@
 					爱奇艺
 				</blockquote>
 				<?php
-					mysqli_data_seek($sql_shangping_aiqiyi,0);
+					mysqli_data_seek($sql_shangping,0);
 					for($i=0;$i<$aiqiyi_jishu;$i++){
-						$shangping=mysqli_fetch_array($sql_shangping_aiqiyi);
+						$shangping=mysqli_fetch_array($sql_shangping);
 						$id=$shangping['goodid'];
 						$name=$shangping['name'];
 						$jiage=$shangping['jiage'];
@@ -52,9 +52,9 @@
 					优酷
 				</blockquote>
 				<?php
-					mysqli_data_seek($sql_shangping_aiqiyi,0);
+					mysqli_data_seek($sql_shangping,0);
 					for($i=0;$i<$aiqiyi_jishu;$i++){
-						$shangping=mysqli_fetch_array($sql_shangping_aiqiyi);
+						$shangping=mysqli_fetch_array($sql_shangping);
 						$id=$shangping['goodid'];
 						$name=$shangping['name'];
 						$jiage=$shangping['jiage'];
