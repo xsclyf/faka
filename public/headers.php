@@ -21,6 +21,15 @@
 				-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
 				box-shadow: 0 3px 6px rgba(0, 0, 0, .175);
 			}
+			html,body{
+                height:100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            #zhuti{
+                height: 100%;
+            }
 		</style>
 	</head>
 
@@ -48,8 +57,10 @@
 						<div class="xs4 xm3 xb4">
 							<form>
 								<div class="input-group padding-little-top">
-									<input type="text" class="input border-main" name="keywords" size="30" placeholder="搜索商品" />
-									<span class="addbtn"><button type="button" class="button bg-main icon-search"></button></span>
+									<form action='sousuo.php' method="GET">
+										<input type="text" class="input border-main" name="sousuo" size="30" placeholder="搜索商品" />
+										<span class="addbtn"><button type="submit" class="button bg-main icon-search"></button></span>
+									</form>
 								</div>
 							</form>
 						</div>

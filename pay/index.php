@@ -31,7 +31,7 @@
 	?>
 
 	<!--主体开始-->
-		<div class="container" style="height: 100%">
+		<div class="container"  id="zhuti">
 			<div class="banner bg-blue hidden-l" style="height: 300px" data-style="border-white">
 				<div class="carousel">
 					<div class="item">1</div>
@@ -90,25 +90,23 @@
 		<!--底部-->
 		<br />
 		<br />
+		<!-- 底部开始 -->
 		<div class="layout padding-big-top padding-big-bottom border-top bg">
-			<div class="container padding">
-				底部
+			<!-- 电脑端底部开始 -->
+			<div class="container x12 hidden-x hidden-l">
+				我只在电脑上显示哦
 			</div>
-		</div>
-		<!--最底部-->
-		<div class="layout bg-black bg-inverse">
-			<div class="container">
-				<div class="navbar">
-					<div class="navbar-head">
-						<button class="button bg-gray icon-navicon" data-target="#navbar-footer"></button>
-						<a href="http://www.pintuer.com" target="_blank"><img class="logo" src="images/24-white.png" alt="拼图前端CSS框架"/></a>
-					</div>
-					<div class="navbar-body nav-navicon" id="navbar-footer">
-						<div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="http://www.pintuer.com"target="_blank">Pintuer.com</a> All Rights Reserved，图ICP备：380959609</div>
-					</div>
-				</div>
+			<!-- 电脑端底部结束 -->
+			<!--手机端显示开始-->
+			<div class="fixed hidden-m hidden-b bg-mix x12" data-style="fixed-bottom" style="height:50px;">
+				<div class="x3 padding"><center><h1><a href="../index.php" class="button border-main button-block">首页</a></h1></center></div>
+				<div class="x3 padding"><center><h1><a href="../fenlei.php" class="button border-main button-block">分类</a></h1></span></center></div>
+				<div class="x3 padding"><center><h1><a href="../sousuo.php" class="button border-main button-block">搜索</a></h1></center></div>
+				<div class="x3 padding"><center><h1><a href="" class="button border-main button-block">订单</a></h1></center></div>
 			</div>
+			<!-- 手机端显示关闭 -->
 		</div>
+		<!--底部结束-->
 	</body>
 
 </html>

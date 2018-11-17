@@ -65,7 +65,7 @@
 		</div>
 	<!--导航结束-->
 	<!--主体开始-->
-		<div class="container bg-white">
+		<div class="container bg-white" id="zhuti">
 			<br>
 			<div class="xl12 xs12 xm12 xb12 bg-white"><form method="POST" action="pay/pay.php">
 				<div class="xl12 xs12 xm4 xb4">
@@ -122,24 +122,6 @@
 		<!--底部-->
 		<br />
 		<br />
-		<div class="xl12 xs12 xm12 xb12 layout padding-big-top padding-big-bottom border-top bg">
-			<div class="container padding">
-				底部
-			</div>
-		</div>
-		<!--最底部-->
-		<div class="layout bg-black bg-inverse">
-			<div class="container">
-				<div class="navbar">
-					<div class="navbar-head">
-						<button class="button bg-gray icon-navicon" data-target="#navbar-footer"></button>
-						<a href="logo.png" target="_blank"><img class="logo" src="images/24-white.png" alt="拼图前端CSS框架" /></a>
-					</div>
-					<div class="navbar-body nav-navicon" id="navbar-footer">
-						<div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="http://www.pintuer.com" target="_blank">Pintuer.com</a> All Rights Reserved，图ICP备：380959609</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include("public/footer.php"); ?>
 	</body>
 </html>

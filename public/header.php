@@ -50,16 +50,17 @@
 								<li><a href="daohang.php?leixing=3">腾讯</a></li>
 								<li><a href="daohang.php?leixing=2">优酷</a></li>
 								<li><a href="daohang.php?leixing=4">芒果</a></li>
-								<li><a href="daohang.php?leixing=5">其他</a></li>
+								<li><a href="fenlei.php">其他</a></li>
 							</ul>
 						</div>
 <!--						搜索-->
 						<div class="xs4 xm3 xb4">
-							<form>
+							<form action="sousuo.php" method="GET">
 								<div class="input-group padding-little-top">
-									<input type="text" class="input border-main" name="keywords" size="30" placeholder="搜索商品" />
-									<span class="addbtn"><button type="button" class="button bg-main icon-search"></button></span>
+										<input type="text" class="input border-main" name="sousuo" size="30" placeholder="搜索商品" />
+										<span class="addbtn"><button type="submit" class="button bg-main icon-search"></button></span>
 								</div>
+							</form>
 							</form>
 						</div>
 					</div>
