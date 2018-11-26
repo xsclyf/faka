@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>后台</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="../css/pintuer.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/pintuer.js"></script>
+    <script src="../js/respond.js"></script>
+    <style>
+        html,body{
+            height:100%;
+            margin: 0;
+            padding: 0;
+        }
+        #s{
+            height: 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed x12 bg-back" style="z-index: 8;">
+        <div class="bg-back container">
+            <div class="xs8 xm6 xb8 padding-big">
+                <ul class="nav nav-menu nav-inline nav-big">
+                    <li><a href="index.php">首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="s">
+        <div class="x2 bg-back" style="height:100%">
+            <div class="panel margin-top">
+                <div class="panel-head">
+                    功能
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li><a href=""><span class="icon-bar-chart-o"></span> 订单查询</a></li>
+                        <li><a href=""><span class="icon-shopping-cart"></span> 商品分型</a></li>
+                        <li><a href=""><span class="icon-shopping-cart"></span> 商品</a></li>
+                        <li><a href=""><span class="icon-bar-chart-o"></span> 网站设置</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="x10 padding">
+            <div class="x12 padding">
+                <div class="panel">
+                    <div class="panel-head">
+                        商品管理
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <tr>
+                                <th> 商品ID</th>
+                                <th> 商品名称</th>
+                                <th> 商品KEY</th>
+                                <th> 管理</th>
+                            </tr>
+                            <tr>
+                                <th> 1</th>
+                                <th> 爱奇艺月卡</th>
+                                <th> A12ASD46AS5D46AS4D56</th>
+                                <th> 已售 删除 修改 </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部开始 -->
+    <div class="layout padding-big-top padding-big-bottom border-top bg">
+        <!-- 电脑端底部开始 -->
+        <div class="container x12 hidden-x hidden-l">
+            我只在电脑上显示哦
+        </div>
+        <!-- 电脑端底部结束 -->
+    </div>
+    <!--底部结束-->
+</body>
+</html>
